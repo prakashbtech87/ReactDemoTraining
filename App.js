@@ -62,7 +62,7 @@ export default class App extends Component{
       <>
       <Home />
       <ListView employees={this.employees} message={this.title}/>
-      <SalaryList/>
+      <SalaryList data={this.employees}/>
       </>
     )
   }

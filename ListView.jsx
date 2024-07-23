@@ -1,4 +1,4 @@
-export default function ListView(props){
+export default function ListView({message,employees}){
 
 
 
@@ -8,7 +8,7 @@ export default function ListView(props){
 
 return (
     <div>
-        <h1>{props.message}</h1>
+        <h1>{message}</h1>
         <table border="1">
             <thead>
                 <tr>
@@ -20,7 +20,7 @@ return (
             </thead>
             <tbody>
                 {
-                    props.employees.map((emp, index) => {
+                    employees.map((emp, index) => {
                         return (
                             <tr key={index}>
                                 <td>{emp.id}</td>
