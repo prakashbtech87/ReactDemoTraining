@@ -4,6 +4,7 @@ import { Component } from 'react';
 import Home from './components/Home';
 import ListView from './components/ListView';
 import SalaryList from './components/SalaryList';
+import Calculator from './components/Calculator';
 
 // function App() {
 //   return (
@@ -61,8 +62,9 @@ export default class App extends Component{
     return(
       <>
       <Home />
-      <ListView employees={this.employees} message={this.title}/>
-      <SalaryList data={this.employees}/>
+      <Calculator/>
+      {/* <ListView employees={this.employees} message={this.title}/>
+      <SalaryList data={this.employees} /> */}
       </>
     )
   }
