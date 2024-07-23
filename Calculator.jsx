@@ -1,24 +1,52 @@
-import { useRef } from "react";
-import { findAllInRenderedTree } from "react-dom/test-utils";
-
-export default function Calculator() {
+// import { useRef } from "react"; // import useRef hook from react library
+import { Component, createRef } from "react";
 
 
-    let textBox1=useRef(0);
-    let textBox2=useRef(0);
+// export default function Calculator() {
 
-const buttonHandler = ()=>{
-    let num1= parseInt(textBox1.current.value);
-    let num2= parseInt(textBox2.current.value);
-   alert("Sum is :"+(num1+num2));
-}
+//     let textBox1 = useRef();
+//     let textBox2 = useRef();
 
-    return (
-        <div>
-            <h1>Calculator</h1>
-            <input type="text" ref={textBox1} placeholder="Enter Number 1" /><br/>
-            <input type="text" ref={textBox2} placeholder="Enter Number 2" /><br/>
-            <button onClick={buttonHandler}>Add</button>
-        </div>
-    )
+//     const buttonHandler = () => {
+//         let num1 = parseInt(textBox1.current.value);
+//         let num2 = parseInt(textBox2.current.value);
+//         alert( "Sum is " + (num1 + num2) ); 
+//     }   
+
+//     return (
+//         <div>
+//             <h1>Calculator</h1>
+//             <input type="text" ref={textBox1} placeholder="Enter Number 1" />
+//             <input type="text" ref={textBox2} placeholder="Enter Number 2" />
+//             <button onClick={buttonHandler}>Add</button>
+//         </div>
+//     )
+// }
+
+export default class Calculator extends Component {
+
+    constructor() {
+        super();
+        
+        this.buttonHandler = this.buttonHandler.bind(this);
+        this.textBox1 = createRef();
+        this.textBox2 = createRef();
+    }
+
+    buttonHandler() {    
+        let num1 = parseInt(this.textBox1.current.value);
+        let num2 = parseInt(this.textBox2.current.value);  
+        alert( "Sum is " + (num1 + num2));
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>Calculator</h1>
+                <input type="text" ref={this.textBox1} placeholder="Enter Number 1" />
+                <input type="text" ref={this.textBox2} placeholder="Enter Number 2" />
+                <button onClick={this.buttonHandler}>Add</button>
+            </div>
+        )
+    }
 }
