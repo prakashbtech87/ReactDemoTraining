@@ -1,6 +1,6 @@
-import { Component } from "react";
+import { Component, useState } from "react";
 
-export default class Greeter extends Component {
+/* export default class Greeter extends Component {
 
     constructor(){
         super();
@@ -33,4 +33,20 @@ export default class Greeter extends Component {
             <p>Hello, {this.state.name}</p>
         </div>)
     }
+} */
+
+export default function Greeter(){
+
+    const[name,setName] = useState("Unknowm");
+    const changeHandler = (e) => {
+        setName(e.target.value.toUpperCase());
+    }
+
+    return ( 
+        <div>
+            <h1> Greeter</h1>
+            <input type="text" value={name} onChange={changeHandler} placeholder="Enter Name" />
+            <p> Helloooo, {name} </p>
+        </div>
+    )
 }
