@@ -35,4 +35,35 @@ static getDerivedStateFromProps( props,state){
         );
 
     }
+
+
+    componentDidMount(){
+        console.log("componentDidMount dome");
+    }
+
+    shouldComponentUpdate( nextProps, nextState) {
+    
+        console.log("Child Component shouldComponentUpdate executed");
+    
+        if(nextProps.name.length >=5){
+            return true;
+        }
+        return false;
+    }
+
+    getSnapshotBeforeUpdate( prevProps, prevState){
+        console.log("getSnapshotBeforeUpdate dome");
+        return "Data from getSnapshotBeforeUpdate";
+    }
+
+
+    componentDidUpdate(prevProps,prevState,snapshot){
+        console.log(snapshot);
+        window.scrollY= 1500-snapshot.scrollPosition;
+        console.log("Child component componentDidUpdate executed");
+    }
+
 }
+
+
+
