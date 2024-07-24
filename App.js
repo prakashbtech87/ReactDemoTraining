@@ -6,6 +6,7 @@ import ListView from './components/ListView';
 import SalaryList from './components/SalaryList';
 import Calculator from './components/Calculator';
 import Greeter from './components/Greeter';
+import Parent from './components/Parent';
 
 // function App() {
 //   return (
@@ -62,11 +63,12 @@ export default class App extends Component{
   render(){
     return(
       <>
-      <Home />
+     {/*  <Home />
       <Calculator/>
-      <Greeter/>
+      <Greeter/> */}
       {/* <ListView employees={this.employees} message={this.title}/>
       <SalaryList data={this.employees} /> */}
+      <Parent/>
       </>
     )
   }
